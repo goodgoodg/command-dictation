@@ -1,4 +1,4 @@
-const CACHE_NAME = "command-dictation-v1";
+const CACHE_NAME = "command-dictation-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
