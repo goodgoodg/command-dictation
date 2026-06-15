@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#243447">
+    <meta name="description" content="Linux 与 ADB 命令听写记忆练习">
+    <title>命令听写</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Linux / ADB</p>
+          <h1>命令听写</h1>
+        </div>
+        <div class="status-stack" aria-live="polite">
+          <span class="status-pill" id="offlineStatus">离线可用</span>
+          <button class="icon-button is-hidden" id="installButton" type="button" title="安装到桌面" aria-label="安装到桌面">
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="practice-panel" aria-label="命令练习">
+        <div class="mode-row" role="tablist" aria-label="练习范围">
+          <button class="segment is-active" type="button" data-mode="linux" role="tab" aria-selected="true">Linux</button>
+          <button class="segment" type="button" data-mode="adb" role="tab" aria-selected="false">ADB</button>
+          <button class="segment" type="button" data-mode="mixed" role="tab" aria-selected="false">混合</button>
+        </div>
+
+        <article class="prompt-card">
+          <div class="prompt-meta">
+            <span class="tag" id="cardTag">目录</span>
+            <span class="progress-text" id="cardProgress">1 / 1</span>
+          </div>
+          <p class="scenario" id="scenarioText"></p>
+          <p class="meaning" id="meaningText"></p>
+        </article>
+
+        <form class="answer-form" id="answerForm">
+          <label for="answerInput">输入命令</label>
+          <div class="input-row">
+            <input id="answerInput" name="answer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="例如：pwd">
+            <button class="primary-button" type="submit">提交</button>
+          </div>
+        </form>
+
+        <div class="action-row">
+          <button class="tool-button" id="speakButton" type="button">朗读</button>
+          <button class="tool-button" id="hintButton" type="button">提示</button>
+          <button class="tool-button" id="skipButton" type="button">下一题</button>
+        </div>
+
+        <section class="feedback is-quiet" id="feedbackBox" aria-live="polite">
+          <p id="feedbackTitle">准备好了就开始。</p>
+          <p id="feedbackDetail">先用场景想命令，不确定再点提示。</p>
+        </section>
+      </section>
+
+      <section class="stats-grid" aria-label="练习数据">
+        <div class="stat-block">
+          <span class="stat-value" id="streakValue">0</span>
+          <span class="stat-label">连对</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-value" id="accuracyValue">0%</span>
+          <span class="stat-label">正确率</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-value" id="masteredValue">0</span>
+          <span class="stat-label">熟练</span>
+        </div>
+      </section>
+
+      <section class="command-list-section" aria-label="命令熟练度">
+        <div class="section-title-row">
+          <h2>当前题库</h2>
+          <button class="link-button" id="resetButton" type="button">重置进度</button>
+        </div>
+        <div class="command-list" id="commandList"></div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
